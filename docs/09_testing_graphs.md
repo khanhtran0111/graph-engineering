@@ -69,4 +69,4 @@ The repository’s [`tests`](../tests/) demonstrate these checks with determinis
 
 Snapshotting only the final text cannot reveal a wrong route that happened to produce plausible prose. Assert state transitions, visit counts, routes, and termination reason.
 
-Next: [Anti-patterns](anti_patterns.md) and the [Graph Engineering checklist](graph_engineering_checklist.md).
+Next: [Evaluating Graph Systems](10_evaluating_graph_systems.md), [Anti-patterns](anti_patterns.md), and the [Graph Engineering checklist](graph_engineering_checklist.md).

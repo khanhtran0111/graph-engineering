@@ -45,6 +45,20 @@ Examples that only add another prompt do not fit the repository. The educational
 - Bound every loop in state and control policy.
 - Clear outputs that expose credentials, local paths, or noisy transient results.
 
+Run `uv run python scripts/normalize_notebooks.py` after editing notebooks. Use `--check` to verify normalization without writing.
+
+## Advanced Example Requirements
+
+A persistence example must document its checkpoint boundary, stable run identity, resume behavior, and idempotency policy. Its tests should prove that completed nodes are not needlessly replayed and a simulated side effect executes at most once.
+
+A human-in-the-loop example must use persistent workflow state, identify which deterministic policy requires review, and cover approval, rejection, timeout or escalation policy, and bounded revision where applicable.
+
+A subgraph must define its input and output contract and identify private child state. Test that the parent receives only documented outputs.
+
+A multi-agent example must justify why multiple agents add capabilities beyond functions or subgraphs. Document agent ownership, allow-listed handoffs, fallback, and termination policy.
+
+A dynamic graph must document maximum fan-out, depth, attempts, budget, timeout, tools, and routes. At minimum, test that runtime dispatch cannot exceed its configured bound.
+
 ## Pattern Guidelines
 
 Document the problem, mental model, topology, when to use it, when not to use it, state requirements, termination, minimal code, and production considerations. Prefer framework-independent code before optional LangGraph syntax.

@@ -53,6 +53,22 @@ Use this checklist before implementing a graph and again during review.
 - [ ] Is termination reason explicit?
 - [ ] Are secrets and sensitive data redacted?
 
+## Persistence and Human Review
+
+- [ ] Is run or thread identity stable across pause and resume?
+- [ ] Are checkpoint boundaries and resume behavior explicit?
+- [ ] Are side effects idempotent across retry, replay, and new runs?
+- [ ] Does deterministic policy decide when approval is mandatory?
+- [ ] Are rejection, timeout, escalation, and revision bounds defined?
+
+## Subgraphs, Agents, and Dynamic Work
+
+- [ ] Do child graphs expose intentional input and output contracts?
+- [ ] Are private child fields isolated from parent state?
+- [ ] Is every agent justified by distinct capability or context?
+- [ ] Are agent and tool routes allow-listed by graph policy?
+- [ ] Are dynamic fan-out, depth, attempts, time, and cost bounded?
+
 ## Testing
 
 - [ ] Can nodes be tested independently?

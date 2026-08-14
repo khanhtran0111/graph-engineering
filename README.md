@@ -1,6 +1,6 @@
 # Graph Engineering
 
-Graph Engineering is the engineering discipline of designing explicit state, computation, control flow, routing, feedback loops, termination policies, recovery mechanisms, and observability for agentic AI systems represented as executable graphs.
+In this repository, Graph Engineering refers to the practice of designing explicit state, computation, control flow, routing, feedback loops, termination policies, recovery mechanisms, and observability for agentic AI systems represented as executable graphs.
 
 > This repository uses **Graph Engineering** as a practical engineering term. It does not claim that the term is an established academic discipline, and it is not another name for LangGraph.
 
@@ -112,8 +112,15 @@ Follow the sequence in order. Each notebook depends only on concepts introduced 
 | 3 | Feedback | [Notebook 03](notebooks/03_feedback_loops.ipynb) | Build bounded evaluator loops |
 | 4 | Parallelism | [Notebook 04](notebooks/04_parallel_execution.ipynb) | Understand fan-out and fan-in |
 | 5 | Reliability | [Notebook 05](notebooks/05_reliability_and_termination.ipynb) | Add failure and termination policy |
-| 6 | Patterns | [Pattern library](patterns/README.md) | Recognize reusable topologies |
-| 7 | Project | [Research agent](examples/research_agent/README.md) | See requirements drive graph growth |
+| 6 | Persistence | [Notebook 06](notebooks/06_checkpointing_and_resume.ipynb) | Pause, checkpoint, resume, and protect side effects |
+| 7 | Human-in-the-loop | [Notebook 07](notebooks/07_human_in_the_loop.ipynb) | Apply persistent approval policy |
+| 8 | Observability | [Notebook 08](notebooks/08_observability_and_tracing.ipynb) | Trace routes, retries, calls, and termination |
+| 9 | Subgraphs | [Notebook 09](notebooks/09_subgraphs.ipynb) | Define isolated computation boundaries |
+| 10 | Multi-agent graphs | [Notebook 10](notebooks/10_multi_agent_graph.ipynb) | Use bounded specialist handoffs |
+| 11 | Dynamic routing | [Notebook 11](notebooks/11_dynamic_routing.ipynb) | Bound runtime fan-out and allowed tools |
+| 12 | Evaluation | [Evaluating graph systems](docs/10_evaluating_graph_systems.md) | Measure control and execution outcomes |
+| 13 | Patterns | [Pattern library](patterns/README.md) | Recognize reusable topologies |
+| 14 | Project | [Research agent](examples/research_agent/README.md) | See requirements drive graph growth |
 
 For a prose path through the same ideas, start with [What is Graph Engineering?](docs/00_what_is_graph_engineering.md), then continue through the numbered documents.
 
@@ -125,7 +132,11 @@ The [pattern library](patterns/README.md) describes reusable topologies rather t
 - evaluator–optimizer;
 - retry with feedback;
 - fan-out/fan-in;
-- human gate.
+- human gate;
+- subgraph/hierarchical graph;
+- dynamic map-reduce;
+- escalation;
+- guarded supervisor.
 
 Each pattern states its problem, topology, state contract, termination rule, minimal implementation, appropriate uses, and production concerns. The [anti-pattern catalog](docs/anti_patterns.md) covers designs such as God nodes, infinite retry, and LLM-controlled hard policy.
 
@@ -144,7 +155,7 @@ Production readiness is more than adding nodes. A graph should define:
 - traces that record routes, node latency, retries, usage, failures, and termination reason;
 - deterministic tests for state, routing, and termination.
 
-Start with [Reliability](docs/06_reliability.md), [Observability](docs/07_observability.md), [Testing graphs](docs/09_testing_graphs.md), and the [Graph Engineering checklist](docs/graph_engineering_checklist.md).
+Start with [Reliability](docs/06_reliability.md), [Observability](docs/07_observability.md), [Testing graphs](docs/09_testing_graphs.md), [Evaluating graph systems](docs/10_evaluating_graph_systems.md), and the [Graph Engineering checklist](docs/graph_engineering_checklist.md).
 
 ## Repository Structure
 
@@ -156,8 +167,8 @@ graph-engineering/
 ├── examples/research_agent/      # One system evolving from V0 to V4
 ├── src/graph_engineering/        # Deterministic control and small helpers
 ├── tests/                        # Model-independent graph tests
+├── scripts/                      # Lightweight repository maintenance
 ├── CONTRIBUTING.md
-├── ROADMAP.md
 └── pyproject.toml
 ```
 
