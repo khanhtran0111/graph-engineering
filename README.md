@@ -26,14 +26,14 @@ flowchart LR
     accTitle: Agentic Graph Control Plane
     accDescr: Input enters an executable graph where state, routing, and policy control deterministic functions, tools, and intelligent model calls before producing an observable result.
 
-    input([Input]) --> graph["Graph control<br/>state · routing · policy"]
-    graph --> code[Deterministic code]
-    graph --> tools[Tools and APIs]
-    graph --> llm[LLM or agent]
-    code --> graph
-    tools --> graph
-    llm --> graph
-    graph --> output([Result and trace])
+    input_node([Input]) --> control_plane["Graph control<br/>state · routing · policy"]
+    control_plane --> code_node[Deterministic code]
+    control_plane --> tool_node[Tools and APIs]
+    control_plane --> llm_node[LLM or agent]
+    code_node --> control_plane
+    tool_node --> control_plane
+    llm_node --> control_plane
+    control_plane --> output_node([Result and trace])
 ```
 
 The graph is valuable because it owns execution policy even when individual computations are probabilistic.
